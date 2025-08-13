@@ -1,0 +1,42 @@
+{
+  "listings": [
+    {
+      "name": "Nova Aesthetics Medspa",
+      "slug": "nova-aesthetics-medspa-arlington",
+      "website": "https://example.com",
+      "description": "Modern medspa offering injectables, skin treatments, and wellness.",
+      "phone": "(555) 555-1234",
+      "email": "info@example.com",
+      "address": "1234 Wilson Blvd",
+      "city": "arlington",
+      "state": "VA",
+      "postalCode": "22201",
+      "country": "US",
+      "lat": 38.8895,
+      "lng": -77.0860,
+      "rating": 4.7,
+      "reviewCount": 128,
+      "brands": ["Allergan", "SkinCeuticals"],
+      "financing": ["CareCredit"],
+      "categories": ["medspa"]
+    },
+    {
+      "name": "Georgetown Glow",
+      "slug": "georgetown-glow-washington",
+      "website": "https://example.org",
+      "address": "3300 M St NW",
+      "city": "washington",
+      "state": "DC",
+      "postalCode": "20007",
+      "country": "US",
+      "lat": 38.9057,
+      "lng": -77.0626,
+      "rating": 4.5,
+      "reviewCount": 76,
+      "brands": ["Galderma"],
+      "financing": [],
+      "categories": ["medspa"]
+    }
+  ],
+  "reindex": true
+}
