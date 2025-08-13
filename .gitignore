@@ -1,0 +1,34 @@
+# Node / Next.js
+node_modules/
+**/node_modules/
+.next/
+**/.next/
+.next-static/
+.next-cache/
+.turbo/
+.vercel/
+dist/
+out/
+coverage/
+*.tsbuildinfo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+*.log
+logs/
+
+# Env files (keep examples)
+.env
+.env.*
+!.env.example
+!web/.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+.sass-cache/
+.cache/
