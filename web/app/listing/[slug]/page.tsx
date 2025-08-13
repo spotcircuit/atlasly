@@ -16,7 +16,7 @@ export default async function ListingPage({ params }: PageProps) {
     return (
       <div className="container mx-auto px-4 py-10">
         <h1 className="text-xl font-semibold">Listing not found</h1>
-        <p className="text-sm text-muted-foreground">We couldn't find this listing.</p>
+        <p className="text-sm text-muted-foreground">{'We couldn\'t find this listing.'}</p>
       </div>
     );
   }
@@ -24,15 +24,15 @@ export default async function ListingPage({ params }: PageProps) {
   const cats = listing.categories.map((c) => c.category.label);
 
   return (
-    <div className="container mx-auto px-4 py-8 space-y-6">
+    <div className="container mx-auto space-y-6 px-4 py-8">
       {listing.claimStatus !== 'VERIFIED' && (
-        <div className="rounded-md border bg-amber-50 text-amber-900 p-4">
+        <div className="p-4 rounded-md border bg-amber-50 text-amber-900">
           <div className="flex items-center justify-between">
             <div>
               <p className="font-medium">Is this your business?</p>
               <p className="text-sm">Claim this page to update details and appear higher in search.</p>
             </div>
-            <a href="/pricing" className="inline-flex items-center px-4 py-2 border rounded-md hover:bg-amber-100">Claim</a>
+            <a href="/pricing" className="inline-flex items-center rounded-md border px-4 py-2 hover:bg-amber-100">Claim</a>
           </div>
         </div>
       )}
@@ -52,7 +52,7 @@ export default async function ListingPage({ params }: PageProps) {
         </div>
       )}
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid gap-6 md:grid-cols-2">
         <div className="space-y-2">
           <h3 className="font-medium">Contact</h3>
           {listing.phone && <div className="text-sm">📞 {listing.phone}</div>}

@@ -1,3 +1,88 @@
+Atlasly — Schema‑Driven Business Directory
+=========================================
+
+Build a vertical‑agnostic, schema‑driven business directory with map + faceted geo search, claim flow, and paid placement (Stripe).
+
+• App: Next.js 14 App Router, TypeScript, Tailwind, shadcn/ui, deployed on Vercel
+• Data: Neon Postgres via Prisma
+• Search: Typesense (geo + facets) — optional until you provision it
+• Maps: Mapbox GL
+• Auth/Billing: Auth.js + Stripe (from starter; claim flow not wired yet)
+
+Repo layout:
+- `web/` — Next.js app (run npm scripts here)
+- `docs/` — detailed guides (setup, Prisma, Typesense, deployment, routes, Stripe)
+
+## Status (at a glance)
+- Implemented: Prisma models, ingest + lead APIs, server search helper, Mapbox component, Typesense client/indexer scaffolding, directory + listing routes, repo cleanup
+- Pending: Provision Typesense + env, run indexer, implement claim flow + Stripe Checkout/webhooks, add vertical config, acceptance tests, deploy to Vercel
+
+See full checklist: `docs/CHECKLIST.md`.
+
+## Quick start (Windows / PowerShell)
+Prereqs: Node.js (npm), Git. App lives under `web/`.
+
+1) Install deps
+
+```powershell
+npm install --prefix .\web
+```
+
+2) Environment
+- Copy `web/.env.example` → `web/.env` and set values.
+- Minimum to run: `DATABASE_URL` (Neon), `NEXT_PUBLIC_MAPBOX_TOKEN`.
+
+3) Prisma (DB schema)
+
+```powershell
+# Cwd: .\web
+npx prisma generate
+npx prisma migrate dev --name init
+```
+
+4) Dev server
+
+```powershell
+npm run dev --prefix .\web
+```
+
+Visit http://localhost:3000
+
+5) (Optional) Typesense indexing
+- Requires `TYPESENSE_HOST`, `TYPESENSE_API_KEY`, `TYPESENSE_SEARCH_ONLY_KEY` in `web/.env`.
+
+```powershell
+npm run index:typesense --prefix .\web
+```
+
+## Routes
+- Directory: `/directory/[city]/[category]` — server search + map + facets
+- Listing: `/listing/[slug]` — details with claim banner when unverified
+
+## Documentation
+- Setup: `docs/SETUP.md`
+- Prisma + Neon: `docs/PRISMA.md`
+- Typesense (what, why, how): `docs/TYPESENSE.md`
+- Deployment (Vercel): `docs/DEPLOYMENT.md`
+- Routes & search details: `docs/ROUTES_AND_SEARCH.md`
+- Claim flow + Stripe plan (upcoming): `docs/STRIPE_CLAIM.md`
+- Project checklist: `docs/CHECKLIST.md`
+
+## Tech stack
+- Next.js 14 App Router, React 18, TypeScript, Tailwind, shadcn/ui
+- Prisma ORM + Neon Postgres
+- Typesense search (geo + facets + planWeight ranking)
+- Mapbox GL for map pins
+- Auth.js + Stripe (from starter)
+
+## Contributing / workflow
+- Windows‑friendly scripts; use PowerShell.
+- Run npm from `web/` or use `--prefix .\\web` from repo root.
+- Git: feature branches from `main`; conventional commits preferred.
+
+---
+Legacy draft (reference) follows below.
+
 Absolutely. Here’s a crystal-clear, copy-paste handoff for your AI code builder that implements the stack we picked: Next.js (App Router) + Neon Postgres + Prisma + Stripe + Auth + Mapbox + Typesense. It starts from a clean Neon/Prisma/Stripe starter, then adds map + faceted geo search + listings + plans + claim flow.
 
 0) Goal (one paragraph for the AI)
