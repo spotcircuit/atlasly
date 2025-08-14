@@ -17,6 +17,7 @@ import {
   LayoutPanelLeft,
   LineChart,
   Loader2,
+  Lock,
   LucideIcon,
   LucideProps,
   MessagesSquare,
@@ -113,6 +114,7 @@ export const Icons = {
   search: Search,
   settings: Settings,
   spinner: Loader2,
+  lock: Lock,
   sun: SunMedium,
   trash: Trash,
   twitter: ({ ...props }: LucideProps) => (

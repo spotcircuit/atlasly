@@ -1,13 +1,15 @@
-code[data-theme*=" "],
-code[data-theme*=" "] span {
+@reference "tailwindcss";
+
+code[data-theme],
+code[data-theme] span {
   color: var(--shiki-light);
   background-color: var(--shiki-light-bg);
 }
 
 @media (prefers-color-scheme: dark) {
 
-  code[data-theme*=" "],
-  code[data-theme*=" "] span {
+  code[data-theme],
+  code[data-theme] span {
     color: var(--shiki-dark);
     background-color: var(--shiki-dark-bg);
   }
@@ -28,7 +30,8 @@ code[data-theme*=" "] span {
 }
 
 [data-line-numbers]>[data-line]::before {
-  @apply text-muted-foreground text-xs;
+  color: hsl(var(--muted-foreground));
+  @apply text-xs;
   counter-increment: line;
   content: counter(line);
   display: inline-block;
@@ -46,7 +49,8 @@ code[data-theme*=" "] span {
 }
 
 [data-highlighted-chars] {
-  @apply rounded-sm bg-zinc-600/50 text-foreground p-1;
+  @apply rounded-sm bg-zinc-600/50 p-1;
+  color: hsl(var(--foreground));
 }
 
 [data-rehype-pretty-code-title] {

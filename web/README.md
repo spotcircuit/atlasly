@@ -1,128 +1,239 @@
-<a href="https://next-saas-stripe-starter.vercel.app">
-  <img alt="SaaS Starter" src="public/_static/og.jpg">
-  <h1 align="center">Next SaaS Stripe Starter</h1>
-</a>
+# Atlasly - MedSpa Directory Platform
 
 <p align="center">
-  Start at full speed with SaaS Starter !
+  <strong>A modern, SEO-optimized directory platform for Medical Spas and Aesthetic Clinics</strong>
 </p>
 
 <p align="center">
-  <a href="https://twitter.com/miickasmt">
-    <img src="https://img.shields.io/twitter/follow/miickasmt?style=flat&label=miickasmt&logo=twitter&color=0bf&logoColor=fff" alt="Mickasmt Twitter follower count" />
-  </a>
-</p>
-
-<p align="center">
-  <a href="#introduction"><strong>Introduction</strong></a> ·
+  <a href="#features"><strong>Features</strong></a> ·
+  <a href="#tech-stack"><strong>Tech Stack</strong></a> ·
   <a href="#installation"><strong>Installation</strong></a> ·
-  <a href="#tech-stack--features"><strong>Tech Stack + Features</strong></a> ·
-  <a href="#author"><strong>Author</strong></a> ·
-  <a href="#credits"><strong>Credits</strong></a>
+  <a href="#project-status"><strong>Project Status</strong></a> ·
+  <a href="#configuration"><strong>Configuration</strong></a>
 </p>
 <br/>
 
-## Introduction
+## 🎯 Overview
 
-Empower your next project with the stack of Next.js 14, Prisma, Neon, Auth.js v5, Resend, React Email, Shadcn/ui, and Stripe.
-<br/>
-All seamlessly integrated with the SaaS Starter to accelerate your development and saas journey.
+Atlasly is a comprehensive directory platform specifically designed for Medical Spas and Aesthetic Clinics. It features a modern purple-to-pink gradient theme, advanced search capabilities, lead generation, and a complete business management system.
 
-## Installation
+### 🌟 Key Features
 
-Clone & create this repo locally with the following command:
+- **Directory System**: Browse MedSpas by location, treatment type, and various filters
+- **SEO Optimized**: Every page includes proper metadata, OpenGraph tags, and semantic HTML
+- **Lead Generation**: Comprehensive lead capture and management system
+- **Business Tools**: Claim listings, advertise, and manage business profiles
+- **Review System**: Authentic patient reviews and ratings
+- **Treatment Guide**: Detailed information about aesthetic treatments
+- **Responsive Design**: Mobile-first approach with beautiful UI/UX
+- **Vertical Configuration**: Easily adaptable to other business verticals
 
-```bash
-npx create-next-app my-saas-project --example "https://github.com/mickasmt/next-saas-stripe-starter"
-```
+## 📦 Installation
 
-Or, deploy with Vercel:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmickasmt%2Fnext-saas-stripe-starter)
+### Prerequisites
+- Node.js 18+ 
+- npm or pnpm
+- PostgreSQL database (Neon recommended)
 
 ### Steps
 
-1. Install dependencies using pnpm:
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/atlasly.git
+cd atlasly/web
+```
 
-```sh
+2. Install dependencies:
+```bash
+npm install
+# or
 pnpm install
 ```
 
-2. Copy `.env.example` to `.env.local` and update the variables.
-
-```sh
+3. Copy `.env.example` to `.env.local` and update the variables:
+```bash
 cp .env.example .env.local
 ```
 
-3. Start the development server:
-
-```sh
-pnpm run dev
+4. Set up the database:
+```bash
+npx prisma generate
+npx prisma db push
 ```
 
-> [!NOTE]  
-> I use [npm-check-updates](https://www.npmjs.com/package/npm-check-updates) package for update this project.
->
-> Use this command for update your project: `ncu -i --format group`
+5. Seed the database with MedSpa data:
+```bash
+npm run seed:medspa
+```
 
-## Roadmap
-- [ ] Upgrade eslint to v9
-- [ ] Add resend for success subscriptions
+6. Start the development server:
+```bash
+npm run dev
+```
 
-## Tech Stack + Features
+Visit `http://localhost:3000` to see the application.
 
-https://github.com/mickasmt/next-saas-stripe-starter/assets/62285783/828a4e0f-30e3-4cfe-96ff-4dfd9cd55124
+## 🚀 Project Status
 
-### Frameworks
+### ✅ Completed Features
+- [x] Homepage with search hero section
+- [x] Directory browsing (/directory)
+- [x] City-specific pages (/directory/[city])
+- [x] Category filtering (/directory/[city]/[category])
+- [x] Individual listing detail pages (/listing/[slug])
+- [x] Treatment guide (/treatments)
+- [x] Review system (/reviews)
+- [x] Lead generation page (/lead-generation)
+- [x] Claim listing page (/claim)
+- [x] Advertise/Featured listings (/advertise)
+- [x] Add business page (/add-business)
+- [x] Purple-to-pink gradient theme throughout
+- [x] SEO optimization on all pages
+- [x] Responsive design
+- [x] Vertical configuration system
 
-- [Next.js](https://nextjs.org/) – React framework for building performant apps with the best developer experience
-- [Auth.js](https://authjs.dev/) – Handle user authentication with ease with providers like Google, Twitter, GitHub, etc.
-- [Prisma](https://www.prisma.io/) – Typescript-first ORM for Node.js
-- [React Email](https://react.email/) – Versatile email framework for efficient and flexible email development
+### 🔄 In Progress
+- [ ] Database seeding (Windows environment issue)
+- [ ] Email notification system
+- [ ] Payment integration for premium listings
+- [ ] Admin dashboard
+- [ ] Analytics dashboard for businesses
 
-### Platforms
+### 📋 TODO
+- [ ] User authentication flow
+- [ ] Business owner dashboard
+- [ ] Appointment booking system
+- [ ] Advanced search filters
+- [ ] Mobile app (React Native)
+- [ ] API documentation
+- [ ] Multi-language support
 
-- [Vercel](https://vercel.com/) – Easily preview & deploy changes with git
-- [Resend](https://resend.com/) – A powerful email framework for streamlined email development
-- [Neon](https://neon.tech/) – Serverless Postgres with autoscaling, branching, bottomless storage and generous free tier.
+## 🛠 Tech Stack
 
-### UI
+### Core Framework
+- **[Next.js 14](https://nextjs.org/)** - React framework with App Router
+- **[TypeScript](https://www.typescriptlang.org/)** - Type-safe development
+- **[Prisma](https://www.prisma.io/)** - Type-safe ORM
+- **[Neon](https://neon.tech/)** - Serverless PostgreSQL
 
-- [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS framework for rapid UI development
-- [Shadcn/ui](https://ui.shadcn.com/) – Re-usable components built using Radix UI and Tailwind CSS
-- [Framer Motion](https://framer.com/motion) – Motion library for React to animate components with ease
-- [Lucide](https://lucide.dev/) – Beautifully simple, pixel-perfect icons
-- [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) – Optimize custom fonts and remove external network requests for improved performance
-- [`ImageResponse`](https://nextjs.org/docs/app/api-reference/functions/image-response) – Generate dynamic Open Graph images at the edge
+### UI & Styling
+- **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS
+- **[Shadcn/ui](https://ui.shadcn.com/)** - High-quality React components
+- **[Lucide Icons](https://lucide.dev/)** - Beautiful icon library
+- **Custom Theme** - Purple-to-pink gradient design system
 
-### Hooks and Utilities
+### Features
+- **[Auth.js v5](https://authjs.dev/)** - Authentication system
+- **[Stripe](https://stripe.com/)** - Payment processing
+- **[Resend](https://resend.com/)** - Email delivery
+- **[React Email](https://react.email/)** - Email templates
+- **[Mapbox GL](https://www.mapbox.com/)** - Interactive maps
+- **[Typesense](https://typesense.org/)** - Search engine
 
-- `useIntersectionObserver` – React hook to observe when an element enters or leaves the viewport
-- `useLocalStorage` – Persist data in the browser's local storage
-- `useScroll` – React hook to observe scroll position ([example](https://github.com/mickasmt/precedent/blob/main/components/layout/navbar.tsx#L12))
-- `nFormatter` – Format numbers with suffixes like `1.2k` or `1.2M`
-- `capitalize` – Capitalize the first letter of a string
-- `truncate` – Truncate a string to a specified length
-- [`use-debounce`](https://www.npmjs.com/package/use-debounce) – Debounce a function call / state update
+### Development
+- **[ESLint](https://eslint.org/)** - Code linting
+- **[Prettier](https://prettier.io/)** - Code formatting
+- **[Vercel](https://vercel.com/)** - Deployment platform
 
-### Code Quality
+## 🎨 Theme Configuration
 
-- [TypeScript](https://www.typescriptlang.org/) – Static type checker for end-to-end typesafety
-- [Prettier](https://prettier.io/) – Opinionated code formatter for consistent code style
-- [ESLint](https://eslint.org/) – Pluggable linter for Next.js and TypeScript
+The platform uses a sophisticated purple-to-pink gradient theme defined in `/config/verticals/medspa.ts`:
 
-### Miscellaneous
+### Color Palette
+- **Primary**: Purple shades (#a855f7 base)
+- **Secondary**: Pink shades (#ec4899 base)
+- **Gradients**:
+  - Primary: `linear-gradient(135deg, #667eea 0%, #764ba2 100%)`
+  - Secondary: `linear-gradient(135deg, #f093fb 0%, #f5576c 100%)`
 
-- [Vercel Analytics](https://vercel.com/analytics) – Track unique visitors, pageviews, and more in a privacy-friendly way
+### Key Design Elements
+- Rounded corners with various radius options
+- Consistent spacing and typography
+- Responsive breakpoints
+- Dark/light mode support (ready for implementation)
 
-## Author
+## 📁 Project Structure
 
-Created by [@miickasmt](https://twitter.com/miickasmt) in 2023, released under the [MIT license](https://github.com/shadcn/taxonomy/blob/main/LICENSE.md).
+```
+web/
+├── app/                    # Next.js App Router pages
+│   ├── (marketing)/       # Public pages
+│   ├── (auth)/           # Authentication pages
+│   ├── (protected)/      # Protected dashboard pages
+│   ├── api/              # API routes
+│   ├── directory/        # Directory pages
+│   └── listing/          # Individual listing pages
+├── components/           # React components
+│   ├── ui/              # Shadcn UI components
+│   ├── sections/        # Page sections
+│   └── layout/          # Layout components
+├── config/              # Configuration files
+│   └── verticals/       # Vertical-specific configs
+├── lib/                 # Utility functions
+├── prisma/              # Database schema
+├── public/              # Static assets
+└── styles/              # Global styles
+```
 
-## Credits
+## 🔧 Configuration
 
-This project was inspired by shadcn's [Taxonomy](https://github.com/shadcn-ui/taxonomy), Steven Tey’s [Precedent](https://github.com/steven-tey/precedent), and Antonio Erdeljac's [Next 13 AI SaaS](https://github.com/AntonioErdeljac/next13-ai-saas).
+### Vertical System
+The platform is built with a vertical configuration system that makes it easy to adapt for different business types. The main configuration is in `/config/verticals/medspa.ts`.
 
-- Shadcn ([@shadcn](https://twitter.com/shadcn))
-- Steven Tey ([@steventey](https://twitter.com/steventey))
-- Antonio Erdeljac ([@YTCodeAntonio](https://twitter.com/AntonioErdeljac))
+### Environment Variables
+Required environment variables in `.env.local`:
+```env
+# Database
+DATABASE_URL="postgresql://..."
+
+# Auth
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET="..."
+
+# Email
+RESEND_API_KEY="..."
+
+# Stripe
+STRIPE_API_KEY="..."
+STRIPE_WEBHOOK_SECRET="..."
+
+# Search (Optional)
+TYPESENSE_API_KEY="..."
+```
+
+## 📈 SEO Features
+
+- **Metadata**: Dynamic page titles and descriptions
+- **OpenGraph**: Social media sharing optimization
+- **Sitemap**: Auto-generated sitemap
+- **Schema.org**: Structured data ready
+- **Performance**: Core Web Vitals optimized
+- **Mobile-First**: Responsive design
+
+## 🚦 What's Next?
+
+### Immediate Priorities
+1. **Fix database seeding** - Resolve Windows environment issues
+2. **Complete authentication flow** - User registration and login
+3. **Payment integration** - Stripe for premium listings
+4. **Email notifications** - Lead alerts and confirmations
+
+### Future Enhancements
+1. **Business Dashboard** - Analytics and lead management
+2. **Advanced Search** - Filters, sorting, and instant search
+3. **Booking System** - Direct appointment scheduling
+4. **Review Moderation** - Admin tools for content management
+5. **API Development** - RESTful API for mobile apps
+6. **Internationalization** - Multi-language support
+
+## 📝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🙏 Acknowledgments
+
+Built on top of the excellent Next.js SaaS Starter by [@miickasmt](https://twitter.com/miickasmt)
