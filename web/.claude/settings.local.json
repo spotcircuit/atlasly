@@ -1,5 +1,13 @@
 {
   "permissions": {
+    "allow": [
+      "Bash(cd:*)",
+      "Bash(cd:*)",
+      "Bash(rm:*)",
+      "Bash(pnpm install:*)",
+      "Bash(cd:*)",
+      "Bash(cd:*)"
+    ],
     "defaultMode": "acceptEdits"
   }
 }
